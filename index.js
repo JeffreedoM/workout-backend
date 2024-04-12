@@ -7,7 +7,16 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://workout-frontend-three.vercel.app/",
+      "https://workout-backend-oheu.onrender.com/",
+      "http://127.0.0.1:5000",
+      "http://localhost:3000",
+    ],
+  })
+);
 
 // Connection
 const DB_CONNECTION = process.env.DB_CONNECTION;
